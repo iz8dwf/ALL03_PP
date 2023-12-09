@@ -1,5 +1,6 @@
 # ALL03_PP
-Hi-Lo ALL-03 and MOD-EMUP programmers parallel port interface using the ATF-1502 CPLD
+Hi-Lo ALL-03 and MOD-EMUP programmers parallel port interface using the ATF-1502 CPLD.
+
 This is a circuit that allows to use the Hi-Lo ALL-03 (and clones like the
 MOD-EMUP) universal programmers/testers via the parallel port interface
 using a patched DOSBOX. Original design by Nicola Di Lieto used an EPM7032
