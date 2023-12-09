@@ -1,0 +1,373 @@
+Atmel ATF1502AS Fitter Version 1.8.7.8 ,running Wed Nov 15 21:27:11 2023
+
+
+fit1502 Z:\HOME\FRANK\PROGETTI\ALL03-PP-ATF\CPLD\ALL03-PP.tt2 -CUPL -dev P1502C44 -JTAG ON
+
+
+****** Initial fitting strategy and property ******
+ Pla_in_file = ALL03-PP.tt2
+ Pla_out_file = ALL03-PP.tt3
+ Jedec_file = ALL03-PP.jed
+ Vector_file = ALL03-PP.tmv
+ verilog_file = ALL03-PP.vt
+ Time_file = 
+ Log_file = ALL03-PP.fit
+ err_file = 
+ Device_name = PLCC44
+ Module_name = 
+ Package_type = PLCC
+ Preassign_file = 
+ Property_file = 
+ Sleep_mode = 
+ Preassignment = 
+ Security_mode = OFF
+ Pin_keep_mode = OFF
+ Dedicated_input_clock = 
+ Dedicated_input_reset = 
+ Dedicated_input_oe = 
+ supporter = CUPL
+ optimize = ON
+ Soft_buffer = 
+ Xor_synthesis = OFF
+ Foldback_logic =  on
+ Expander = 
+ Cascade_logic = OFF
+ Dedicated_input = 
+ Output_fast = OFF
+ *******************************
+ Power down pin 1 = OFF
+ Power down pin 2 = OFF
+ power_reset = OFF
+ JTAG = ON
+ TDI pullup = OFF
+ TMS pullup = OFF
+ MC_power = OFF
+ Open_collector = OFF
+ ITD0 = ON
+ ITD1 = ON
+ ITD2 = ON
+ Fast_inlatch = off
+ *******************************
+---------------------------------------------------------
+ Fitter_Pass 1, Preassign = KEEP, LOGIC_DOUBLING : OFF 
+ ... 
+
+Performing global Output Enable pin assignments ...
+
+Performing global pin assignments ...
+--------------------------------------
+
+
+
+Final global control pins assignment (if applicable)...
+-------------------------------------------------------
+
+
+
+Performing input pin pre-assignments ...
+------------------------------------
+pp_autof_n assigned to pin  2
+pp_strobe_n assigned to pin  1
+
+Attempt to place floating signals ...
+------------------------------------
+pp_d0 is placed at pin 4 (MC 1)
+pp_err_n is placed at pin 5 (MC 2)
+pp_d1 is placed at pin 6 (MC 3)
+TDI is placed at pin 7 (MC 4)
+pp_init_n is placed at pin 8 (MC 5)
+pp_d2 is placed at pin 9 (MC 6)
+pp_d3 is placed at pin 11 (MC 7)
+pp_slct_in is placed at pin 12 (MC 8)
+TMS is placed at pin 13 (MC 9)
+pp_d4 is placed at pin 14 (MC 10)
+pp_d5 is placed at pin 16 (MC 11)
+pp_d7 is placed at pin 17 (MC 12)
+pp_ack_n is placed at pin 18 (MC 13)
+pp_d6 is placed at pin 19 (MC 14)
+pp_slct is placed at pin 20 (MC 15)
+pp_pe is placed at pin 21 (MC 16)
+all_reset is placed at pin 40 (MC 18)
+all_d0 is placed at pin 39 (MC 19)
+TDO is placed at pin 38 (MC 20)
+all_d1 is placed at pin 37 (MC 21)
+all_d2 is placed at pin 36 (MC 22)
+all_d3 is placed at pin 34 (MC 23)
+all_d4 is placed at pin 33 (MC 24)
+TCK is placed at pin 32 (MC 25)
+all_d5 is placed at pin 31 (MC 26)
+all_d7 is placed at pin 29 (MC 27)
+all_wr2_n is placed at pin 28 (MC 28)
+all_d6 is placed at pin 27 (MC 29)
+all_rd2_n is placed at pin 26 (MC 30)
+all_wr0 is placed at pin 25 (MC 31)
+FB_63 is placed at foldback expander node 332 (MC 32)
+
+                                                                 
+                                 p                               
+                              p  p                               
+                              p  _             a                 
+                     p        _  s             l                 
+                     p        a  t             l                 
+                     _        u  r             _                 
+                  p  e  p     t  o             r                 
+                  p  r  p     o  b             e                 
+                  _  r  _  V  f  e       G     s                 
+                  d  _  d  C  _  _       N     e                 
+                  1  n  0  C  n  n       D     t                 
+               ____________________________________              
+              /   6  5  4  3  2  1 44 43 42 41 40  \             
+         TDI |  7                                39 | all_d0     
+   pp_init_n |  8                                38 | TDO        
+       pp_d2 |  9                                37 | all_d1     
+         GND | 10                                36 | all_d2     
+       pp_d3 | 11                                35 | VCC        
+  pp_slct_in | 12            ATF1502             34 | all_d3     
+         TMS | 13          44-Lead PLCC          33 | all_d4     
+       pp_d4 | 14                                32 | TCK        
+         VCC | 15                                31 | all_d5     
+       pp_d5 | 16                                30 | GND        
+       pp_d7 | 17                                29 | all_d7     
+             |   18 19 20 21 22 23 24 25 26 27 28   |            
+              \____________________________________/             
+                 p  p  p  p  G  V     a  a  a  a                 
+                 p  p  p  p  N  C     l  l  l  l                 
+                 _  _  _  _  D  C     l  l  l  l                 
+                 a  d  s  p           _  _  _  _                 
+                 c  6  l  e           w  r  d  w                 
+                 k     c              r  d  6  r                 
+                 _     t              0  2     2                 
+                 n                       _     _                 
+                                         n     n                 
+
+
+
+VCC = Supply Voltage pin which must be connected to (5.0V or 3.0V)
+
+GND = GND pin which must be connected to ground
+
+TMS,TDI,TDO,TDI = JTAG pins which must reserved for the JTAG interface
+
+NC = Unused I/O pins which must be unconnected on the board
+
+Universal-Interconnect-Multiplexer assignments
+------------------------------------------------
+FanIn assignment for block A [9]
+{
+all_d2,all_d1,all_d3,all_d4,all_d0,all_d6,all_d7,all_d5,
+pp_slct_in,
+}
+Multiplexer assignment for block A
+all_d2			(MC3	P)   : MUX 0		Ref (B22p)
+all_d1			(MC2	P)   : MUX 3		Ref (B21p)
+all_d3			(MC4	P)   : MUX 4		Ref (B23p)
+pp_slct_in		(MC9	P)   : MUX 6		Ref (A8p)
+all_d4			(MC5	P)   : MUX 8		Ref (B24p)
+all_d0			(MC1	P)   : MUX 14		Ref (B19p)
+all_d6			(MC8	P)   : MUX 22		Ref (B29p)
+all_d7			(MC7	P)   : MUX 31		Ref (B27p)
+all_d5			(MC6	P)   : MUX 34		Ref (B26p)
+
+FanIn assignment for block B [12]
+{
+pp_d2,pp_init_n,pp_d3,pp_slct_in,pp_d0,pp_d1,pp_strobe_n,pp_d6,pp_d5,pp_d4,pp_d7,pp_autof_n,
+}
+Multiplexer assignment for block B
+pp_d2			(MC6	P)   : MUX 1		Ref (A6p)
+pp_init_n		(MC12	P)   : MUX 2		Ref (A5p)
+pp_d3			(MC7	P)   : MUX 4		Ref (A7p)
+pp_slct_in		(MC1	P)   : MUX 6		Ref (A8p)
+pp_d0			(MC2	P)   : MUX 12		Ref (A1p)
+pp_d1			(MC5	P)   : MUX 14		Ref (A3p)
+pp_strobe_n		(MC4	FB)  : MUX 20		Ref (GCLR)
+pp_d6			(MC10	P)   : MUX 24		Ref (A14p)
+pp_d5			(MC9	P)   : MUX 30		Ref (A11p)
+pp_d4			(MC8	P)   : MUX 34		Ref (A10p)
+pp_d7			(MC11	P)   : MUX 38		Ref (A12p)
+pp_autof_n		(MC3	FB)  : MUX 39		Ref (OE2)
+
+Creating JEDEC file Z:\HOME\FRANK\PROGETTI\ALL03-PP-ATF\CPLD\ALL03-PP.jed ...
+
+PLCC44 programmed logic:
+-----------------------------------
+all_d1.L = pp_d1;
+
+all_d0.L = pp_d0;
+
+all_d2.L = pp_d2;
+
+all_d3.L = pp_d3;
+
+all_d4.L = pp_d4;
+
+all_d5.L = pp_d5;
+
+all_d6.L = pp_d6;
+
+all_d7.L = pp_d7;
+
+pp_ack_n = ((pp_slct_in & all_d7.PIN)
+	# (!pp_slct_in & all_d3.PIN));
+
+all_reset = !pp_init_n;
+
+all_wr0 = (!pp_slct_in & !pp_strobe_n);
+
+!all_wr2_n = (pp_slct_in & !pp_strobe_n);
+
+pp_err_n = ((pp_slct_in & all_d4.PIN)
+	# (!pp_slct_in & all_d0.PIN));
+
+pp_pe = ((pp_slct_in & all_d6.PIN)
+	# (!pp_slct_in & all_d2.PIN));
+
+pp_slct = ((pp_slct_in & all_d5.PIN)
+	# (!pp_slct_in & all_d1.PIN));
+
+all_rd2_n = FB_63;
+
+!FB_63 = (!pp_autof_n & pp_strobe_n);
+
+all_d1.LE = 1;
+
+all_d1.OE = FB_63;
+
+all_d0.LE = 1;
+
+all_d0.OE = FB_63;
+
+all_d2.LE = 1;
+
+all_d2.OE = FB_63;
+
+all_d3.LE = 1;
+
+all_d3.OE = FB_63;
+
+all_d4.LE = 1;
+
+all_d4.OE = FB_63;
+
+all_d5.LE = 1;
+
+all_d5.OE = FB_63;
+
+all_d6.LE = 1;
+
+all_d6.OE = FB_63;
+
+all_d7.LE = 1;
+
+all_d7.OE = FB_63;
+
+
+PLCC44 Pin/Node Placement:
+------------------------------------
+Pin 1  = pp_strobe_n;
+Pin 2  = pp_autof_n;
+Pin 4  = pp_d0; /* MC 1 */
+Pin 5  = pp_err_n; /* MC 2 */
+Pin 6  = pp_d1; /* MC 3 */
+Pin 7  = TDI; /* MC 4 */
+Pin 8  = pp_init_n; /* MC 5 */
+Pin 9  = pp_d2; /* MC 6 */
+Pin 11 = pp_d3; /* MC  7 */
+Pin 12 = pp_slct_in; /* MC  8 */
+Pin 13 = TMS; /* MC  9 */
+Pin 14 = pp_d4; /* MC 10 */ 
+Pin 16 = pp_d5; /* MC 11 */ 
+Pin 17 = pp_d7; /* MC 12 */ 
+Pin 18 = pp_ack_n; /* MC 13 */ 
+Pin 19 = pp_d6; /* MC 14 */ 
+Pin 20 = pp_slct; /* MC 15 */ 
+Pin 21 = pp_pe; /* MC 16 */ 
+Pin 25 = all_wr0; /* MC 31 */ 
+Pin 26 = all_rd2_n; /* MC 30 */ 
+Pin 27 = all_d6; /* MC 29 */ 
+Pin 28 = all_wr2_n; /* MC 28 */ 
+Pin 29 = all_d7; /* MC 27 */ 
+Pin 31 = all_d5; /* MC 26 */ 
+Pin 32 = TCK; /* MC 25 */ 
+Pin 33 = all_d4; /* MC 24 */ 
+Pin 34 = all_d3; /* MC 23 */ 
+Pin 36 = all_d2; /* MC 22 */ 
+Pin 37 = all_d1; /* MC 21 */ 
+Pin 38 = TDO; /* MC 20 */ 
+Pin 39 = all_d0; /* MC 19 */ 
+Pin 40 = all_reset; /* MC 18 */ 
+PINNODE 332 = FB_63; /* MC 32 Foldback */
+
+** Resource Usage **
+
+
+DCERP Field = Summary of Allocations.
+|||||
+|||||_Preset [p,-]       ==  p = PT preset, - No Preset.
+||||
+||||__Reset [g,r,-]      ==  g= Global AR, r = PT reset, - No reset.
+|||
+|||___Clock Enable [e,-] ==  e = Product Term, - always enabled, - none.
+||
+||____Clock [c,g,-],     ==  c = Product term, g = Global term, - No Clock.
+|
+|_____Type [C,D,L,T],    ==  Register type C= combin, D=dff, L=latch, T=tff.
+
+For input only = INPUT.
+
+MCell Pin# Oe   PinDrive    DCERP  FBDrive  DCERP  Foldback  CascadeOut     TotPT output_slew
+MC1   4    --   pp_d0       INPUT  --              --        --             0     slow
+MC2   5    on   pp_err_n    C----  --              --        --             2     slow
+MC3   6    --   pp_d1       INPUT  --              --        --             0     slow
+MC4   7    --   TDI         INPUT  --              --        --             0     slow
+MC5   8    --   pp_init_n   INPUT  --              --        --             0     slow
+MC6   9    --   pp_d2       INPUT  --              --        --             0     slow
+MC7   11   --   pp_d3       INPUT  --              --        --             0     slow
+MC8   12   --   pp_slct_in  INPUT  --              --        --             0     slow
+MC9   13   --   TMS         INPUT  --              --        --             0     slow
+MC10  14   --   pp_d4       INPUT  --              --        --             0     slow
+MC11  16   --   pp_d5       INPUT  --              --        --             0     slow
+MC12  17   --   pp_d7       INPUT  --              --        --             0     slow
+MC13  18   on   pp_ack_n    C----  --              --        --             2     slow
+MC14  19   --   pp_d6       INPUT  --              --        --             0     slow
+MC15  20   on   pp_slct     C----  --              --        --             2     slow
+MC16  21   on   pp_pe       C----  --              --        --             2     slow
+MC17  41        --                 --              --        --             0     slow
+MC18  40   on   all_reset   C----  --              --        --             1     slow
+MC19  39   PT   all_d0      L----  --              --        --             2     slow
+MC20  38   --   TDO         INPUT  --              --        --             0     slow
+MC21  37   PT   all_d1      L----  --              --        --             2     slow
+MC22  36   PT   all_d2      L----  --              --        --             2     slow
+MC23  34   PT   all_d3      L----  --              --        --             2     slow
+MC24  33   PT   all_d4      L----  --              --        --             2     slow
+MC25  32   --   TCK         INPUT  --              --        --             0     slow
+MC26  31   PT   all_d5      L----  --              --        --             2     slow
+MC27  29   PT   all_d7      L----  --              --        --             2     slow
+MC28  28   on   all_wr2_n   C----  --              --        --             1     slow
+MC29  27   PT   all_d6      L----  --              --        --             2     slow
+MC30  26   on   all_rd2_n   C----  --              --        --             1     slow
+MC31  25   on   all_wr0     C----  --              --        --             1     slow
+MC32  24        --                 --              FB_63     --             1     slow
+MC0   2         pp_autof_n  INPUT  --              --        --             0     slow
+MC0   1         pp_strobe_n INPUT  --              --        --             0     slow
+MC0   44        --                 --              --        --             0     slow
+MC0   43        --                 --              --        --             0     slow
+
+Logic Array Block	Logic Cells	I/O Pins	Foldbacks	TotalPT		FanIN	Cascades
+A: LC1	- LC16		4/16(25%)	16/16(100%)	0/16(0%)	8/80(10%)	(9)	0
+B: LC17	- LC32		12/16(75%)	14/16(87%)	1/16(6%)	21/80(26%)	(12)	0
+
+Total dedicated input used:	2/4 	(50%)
+Total I/O pins used		30/32 	(93%)
+Total Logic cells used 		16/32 	(50%)
+Total Flip-Flop used 		8/32 	(25%)
+Total Foldback logic used 	1/32 	(3%)
+Total Nodes+FB/MCells 		17/32 	(53%)
+Total cascade used 		0
+Total input pins 		16
+Total output pins 		16
+Total Pts 			29
+Creating pla file Z:\HOME\FRANK\PROGETTI\ALL03-PP-ATF\CPLD\ALL03-PP.tt3 with 0 inputs 0 outputs, 0 pins 0 nodes and 0 pterms...
+
+----------------  End fitter, Design FITS
+$Device PLCC44 fits 
+FIT1502 completed in 0.00 seconds

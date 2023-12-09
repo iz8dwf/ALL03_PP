@@ -1,0 +1,76 @@
+--- a/src/hardware/parport/parport.cpp
++++ b/src/hardware/parport/parport.cpp
+@@ -256,9 +256,47 @@ void CParallel::initialize()
+ 	//LOG_MSG("printer init");
+ }
+ 
++CParallel* parallelPortObjects[3];
+ 
++static void sac_wr0(Bitu port,Bitu val,Bitu /*iolen*/) {
++	int i = (port & 0xF0) >> 4;
++	CDirectLPT *p = dynamic_cast<CDirectLPT *>(parallelPortObjects[i]);
++	if (!p)
++		return;
++	//LOG_MSG("sac_wr0: %02x", val);
++	p->Write_PR(val);
++	p->Write_CON(0x0C); // SELECT | INIT
++	p->Write_CON(0x0D); // SELECT | INIT | STROBE
++	p->Write_CON(0x04); // INIT
++}
++
++static void sac_wr2(Bitu port,Bitu val,Bitu /*iolen*/) {
++	int i = (port & 0xF0) >> 4;
++	CDirectLPT *p = dynamic_cast<CDirectLPT *>(parallelPortObjects[i]);
++	if (!p)
++		return;
++	//LOG_MSG("sac_wr2: %02x", val);
++	p->Write_PR(val);
++	p->Write_CON(0x04); // INIT
++	p->Write_CON(0x05); // INIT | STROBE
++	p->Write_CON(0x04); // INIT
++}
++
++static Bitu sac_rd2(Bitu port,Bitu /*iolen*/) {
++	Bitu retval;
++	int i = (port & 0xF0) >> 4;
++	CDirectLPT *p = dynamic_cast<CDirectLPT *>(parallelPortObjects[i]);
++	if (!p)
++		return 0;
++	p->Write_CON(0x0E); // SELECT | INIT | AUTOFD
++	retval = (p->Read_SR() >> 3) & 0xF;
++	p->Write_CON(0x06); // INIT | AUTOFD
++	retval |= (p->Read_SR() << 1) & 0xF0;
++	p->Write_CON(0x04); // INIT
++	//LOG_MSG("sac_rd2: %02x", retval);
++	return retval;
++}
+ 
+-CParallel* parallelPortObjects[3];
+ class PARPORTS:public Module_base {
+ public:
+ 	
+@@ -283,8 +318,12 @@ public:
+ #ifdef C_DIRECTLPT			
+ 			if(str=="reallpt") {
+ 				CDirectLPT* cdlpt= new CDirectLPT(i, defaultirq[i],&cmd);
+-				if(cdlpt->InstallationSuccessful)
++				if(cdlpt->InstallationSuccessful) {
+ 					parallelPortObjects[i]=cdlpt;
++					WriteHandler0[i].Install(0x200+(i<<4), sac_wr0, IO_MB);
++					WriteHandler2[i].Install(0x202+(i<<4), sac_wr2, IO_MB);
++					ReadHandler2[i].Install(0x202+(i<<4), sac_rd2, IO_MB);
++				}
+ 				else {
+ 					delete cdlpt;
+ 					parallelPortObjects[i]=0;
+@@ -334,6 +373,10 @@ public:
+ 				parallelPortObjects[i] = 0;
+ 			}
+ 	}
++private:
++	IO_WriteHandleObject WriteHandler0[3];
++	IO_WriteHandleObject WriteHandler2[3];
++	IO_ReadHandleObject ReadHandler2[3];
+ };
+ 
+ static PARPORTS *testParallelPortsBaseclass;

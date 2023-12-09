@@ -1,0 +1,72 @@
+Name     All03-pp ;
+PartNo   00 ;
+Date     11/14/2023 ;
+Revision 01 ;
+Designer IZ8DWF ;
+Company  IZ8DWF ;
+Assembly None ;
+Location  ;
+Device   f1502ispplcc44;
+
+PROPERTY ATMEL {pin_keep OFF} ; /* Disables pin-keeper circuits */
+
+/* 7,13,32,38 are jtag pins */
+
+/* *************** INPUT PINS *********************/
+PIN   1 = pp_strobe_n; /*                                 */ 
+PIN   2 = pp_autof_n; /*                                 */ 
+PIN   4 = pp_d0;     /*                                 */ 
+PIN   6 = pp_d1;     /*                                 */ 
+PIN   9 = pp_d2;     /*                                 */ 
+PIN   8 = pp_init_n; 
+PIN  12 = pp_slct_in;
+PIN  11 = pp_d3;
+PIN  14 = pp_d4;
+PIN  16 = pp_d5;
+PIN  19 = pp_d6;
+PIN  17 = pp_d7;
+
+/* *************** OUTPUT PINS *********************/
+/* PIN  24 = pp_busy;  /*  this appears to be always low    */ 
+PIN  18 = pp_ack_n;  /*                                 */ 
+PIN  20 = pp_slct;   /*                                 */ 
+PIN   5 = pp_err_n;  /*                                 */ 
+PIN  21 = pp_pe;   /*                                 */ 
+PIN  25 = all_wr0;  /* writes programmer internal address   */ 
+PIN  28 = all_wr2_n;  /* writes data on selected address   */ 
+PIN  26 = all_rd2_n;  /* reads data from selected address  */ 
+PIN  27 = all_d6;   
+PIN  37 = all_d1;   
+PIN  29 = all_d7;
+PIN  31 = all_d5;
+PIN  33 = all_d4;
+PIN  34 = all_d3;
+PIN  36 = all_d2;
+PIN  39 = all_d0;
+PIN  40 = all_reset;
+
+PINNODE 332 = rd_n;
+
+rd_n = pp_autof_n # !pp_strobe_n;
+
+all_reset = !pp_init_n;
+all_wr0 = !(pp_strobe_n # pp_slct_in);
+all_wr2_n = pp_strobe_n # !pp_slct_in;
+
+all_rd2_n = rd_n;
+
+[all_d0..7].l = [pp_d0..7].io;
+[all_d0..7].oe = rd_n;
+[all_d0..7].le = 'b'11111111;
+
+pp_err_n =  all_d4.io & pp_slct_in
+          # all_d0.io & !pp_slct_in;
+
+pp_slct =  all_d5.io & pp_slct_in
+         # all_d1.io & !pp_slct_in;
+
+pp_pe =  all_d6.io & pp_slct_in
+       # all_d2.io & !pp_slct_in;
+
+pp_ack_n =  all_d7.io & pp_slct_in
+          # all_d3.io & !pp_slct_in;

@@ -1,0 +1,253 @@
+{COMPONENT Z:\HOME\FRANK\PROGETTI\ALL03-PP-ATF\CPLD\ALL03-PP.SYM
+
+ {ENVIRONMENT
+  {PDIFvrev 3.00}
+  {Program "CUPL(WM) Version 5.0a"}
+  {DBtype "Schematic"}
+  {DBvrev 1.01}
+  {DBtime "Wed Nov 15 21:27:11 2023 "}
+  {DBunit "MIL"}
+  {DBgrid 10}
+  {Lyrstr "WIRES" 1 "BUS" 1 "GATE" 2 "IEEE" 2 "PINFUN" 3 "PINNUM" 1 
+          "PINNAM" 6 "PINCON" 4 "REFDES" 2 "ATTR" 6 "SDOT" 1 
+          "DEVICE" 5 "OUTLIN" 5 "ATTR2" 6 "NOTES" 6 "NETNAM" 4 
+          "CMPNAM" 5 "BORDER" 5}
+ }
+
+ {USER
+  {VIEW
+   {Mode SYMB}
+   {Nlst OPEN}
+   {Vw 0 0 2}
+   {Lv 12 2 2 2 0 0 2 2 2 2 0 0 2 1 2 0 0 0 0}
+   {Gs 10 10}
+  }
+ }
+
+ {DISPLAY
+  [Ly "PINNUM"]
+  [Ls "SOLID"][Wd 0]
+  [Ts 15][Tj "LC"][Tr 0][Tm "N"]
+ }
+
+ {SYMBOL
+  {PIN_DEF
+   [Ly "PINCON"]
+   {P PP_STROB {Pt "INPUT"}{Lq 0}{Ploc 100 400}}
+   {P PP_AUTOF {Pt "INPUT"}{Lq 0}{Ploc 100 380}}
+   {P PP_D0 {Pt "INPUT"}{Lq 0}{Ploc 100 360}}
+   {P PP_D1 {Pt "INPUT"}{Lq 0}{Ploc 100 340}}
+   {P PP_INIT_ {Pt "INPUT"}{Lq 0}{Ploc 100 320}}
+   {P PP_D2 {Pt "INPUT"}{Lq 0}{Ploc 100 300}}
+   {P PP_D3 {Pt "INPUT"}{Lq 0}{Ploc 100 280}}
+   {P PP_SLCT_ {Pt "INPUT"}{Lq 0}{Ploc 100 260}}
+   {P PP_D4 {Pt "INPUT"}{Lq 0}{Ploc 100 240}}
+   {P PP_D5 {Pt "INPUT"}{Lq 0}{Ploc 100 220}}
+   {P PP_D7 {Pt "INPUT"}{Lq 0}{Ploc 100 200}}
+   {P PP_D6 {Pt "INPUT"}{Lq 0}{Ploc 100 180}}
+   {P ALL_D6 {Pt "INPUT"}{Lq 0}{Ploc 100 160}}
+   {P ALL_D7 {Pt "INPUT"}{Lq 0}{Ploc 100 140}}
+   {P ALL_D5 {Pt "INPUT"}{Lq 0}{Ploc 100 120}}
+   {P ALL_D4 {Pt "INPUT"}{Lq 0}{Ploc 100 100}}
+   {P ALL_D3 {Pt "INPUT"}{Lq 0}{Ploc 100 80}}
+   {P ALL_D2 {Pt "INPUT"}{Lq 0}{Ploc 100 60}}
+   {P ALL_D1 {Pt "INPUT"}{Lq 0}{Ploc 100 40}}
+   {P ALL_D0 {Pt "INPUT"}{Lq 0}{Ploc 100 20}}
+   {P PP_ERR_N {Pt "I/O"}{Lq 0}{Ploc 360 20}}
+   {P PP_ACK_N {Pt "I/O"}{Lq 0}{Ploc 360 40}}
+   {P PP_SLCT {Pt "I/O"}{Lq 0}{Ploc 360 60}}
+   {P PP_PE {Pt "I/O"}{Lq 0}{Ploc 360 80}}
+   {P ALL_WR0 {Pt "I/O"}{Lq 0}{Ploc 360 100}}
+   {P ALL_RD2_ {Pt "I/O"}{Lq 0}{Ploc 360 120}}
+   {P ALL_WR2_ {Pt "I/O"}{Lq 0}{Ploc 360 140}}
+   {P ALL_RESE {Pt "I/O"}{Lq 0}{Ploc 360 160}}
+  }
+
+  {PKG
+   [Ly "REFDES"]
+   [Ts 25][Tj "CB"][Tr 0][Tm "N"]
+   {Rdl 230 430}
+
+   [Ly "PINNUM"]
+   [Ts 15][Tj "RC"]
+   {Pnl 120 410}
+   {Pnl 120 390}
+   {Pnl 120 370}
+   {Pnl 120 350}
+   {Pnl 120 330}
+   {Pnl 120 310}
+   {Pnl 120 290}
+   {Pnl 120 270}
+   {Pnl 120 250}
+   {Pnl 120 230}
+   {Pnl 120 210}
+   {Pnl 120 190}
+   {Pnl 120 170}
+   {Pnl 120 150}
+   {Pnl 120 130}
+   {Pnl 120 110}
+   {Pnl 120 90}
+   {Pnl 120 70}
+   {Pnl 120 50}
+   {Pnl 120 30}
+   [Ts 15][Tj "LC"]
+   {Pnl 340 30}
+   {Pnl 340 50}
+   {Pnl 340 70}
+   {Pnl 340 90}
+   {Pnl 340 110}
+   {Pnl 340 130}
+   {Pnl 340 150}
+   {Pnl 340 170}
+
+   {Sd A 1 2 4 6 8 9 11 12 14 16 17 19 27 29 31 33 34 36 37 39 5 18 20 21 25 26 28 40}
+  }
+
+  {PIC
+   [Ly "GATE"]
+   [Ts 15][Tj "LC"][Tr 0][Tm "N"]
+   {R 130 420 330 0}
+   {L 130 400 100 400}
+   {L 130 380 100 380}
+   {L 130 360 100 360}
+   {L 130 340 100 340}
+   {L 130 320 100 320}
+   {L 130 300 100 300}
+   {L 130 280 100 280}
+   {L 130 260 100 260}
+   {L 130 240 100 240}
+   {L 130 220 100 220}
+   {L 130 200 100 200}
+   {L 130 180 100 180}
+   {L 130 160 100 160}
+   {L 130 140 100 140}
+   {L 130 120 100 120}
+   {L 130 100 100 100}
+   {L 130 80 100 80}
+   {L 130 60 100 60}
+   {L 130 40 100 40}
+   {L 130 20 100 20}
+   {L 330 20 360 20}
+   {L 330 40 360 40}
+   {L 330 60 360 60}
+   {L 330 80 360 80}
+   {L 330 100 360 100}
+   {L 330 120 360 120}
+   {L 330 140 360 140}
+   {L 330 160 360 160}
+   [Ly "PINNAM"]
+   [Tj "LC"]
+   {T "PP_STROB" 140 400}
+   {T "PP_AUTOF" 140 380}
+   {T "PP_D0" 140 360}
+   {T "PP_D1" 140 340}
+   {T "PP_INIT_" 140 320}
+   {T "PP_D2" 140 300}
+   {T "PP_D3" 140 280}
+   {T "PP_SLCT_" 140 260}
+   {T "PP_D4" 140 240}
+   {T "PP_D5" 140 220}
+   {T "PP_D7" 140 200}
+   {T "PP_D6" 140 180}
+   {T "ALL_D6" 140 160}
+   {T "ALL_D7" 140 140}
+   {T "ALL_D5" 140 120}
+   {T "ALL_D4" 140 100}
+   {T "ALL_D3" 140 80}
+   {T "ALL_D2" 140 60}
+   {T "ALL_D1" 140 40}
+   {T "ALL_D0" 140 20}
+   [Tj "RC"]
+   {T "PP_ERR_N" 320 20}
+   {T "PP_ACK_N" 320 40}
+   {T "PP_SLCT" 320 60}
+   {T "PP_PE" 320 80}
+   {T "ALL_WR0" 320 100}
+   {T "ALL_RD2_" 320 120}
+   {T "ALL_WR2_" 320 140}
+   {T "ALL_RESE" 320 160}
+   [Ly "DEVICE"]
+   [Tj "CT"]
+   {T "F1502ISPPLCC44" 230 -10}
+  }
+
+  {ATR
+   {IN
+    {Org 100 20}
+    {Ty 255}
+   }
+   {EX
+    [Ly "ATTR2"]
+    [Ts 12][Tj "CT"][Tr 0][Tm "N"]
+    {At PLD Z:\HOME\FRANK\PROGETTI\ALL03-PP-ATF\CPLD\ALL03-PP 230 420}
+   }
+  }
+ }
+
+ {DETAIL
+  {ANNOTATE
+  }
+
+  {NET_DEF
+   {N PP_STROB
+   }
+   {N PP_AUTOF
+   }
+   {N PP_D0
+   }
+   {N PP_D1
+   }
+   {N PP_INIT_
+   }
+   {N PP_D2
+   }
+   {N PP_D3
+   }
+   {N PP_SLCT_
+   }
+   {N PP_D4
+   }
+   {N PP_D5
+   }
+   {N PP_D7
+   }
+   {N PP_D6
+   }
+   {N ALL_D6
+   }
+   {N ALL_D7
+   }
+   {N ALL_D5
+   }
+   {N ALL_D4
+   }
+   {N ALL_D3
+   }
+   {N ALL_D2
+   }
+   {N ALL_D1
+   }
+   {N ALL_D0
+   }
+   {N PP_ERR_N
+   }
+   {N PP_ACK_N
+   }
+   {N PP_SLCT
+   }
+   {N PP_PE
+   }
+   {N ALL_WR0
+   }
+   {N ALL_RD2_
+   }
+   {N ALL_WR2_
+   }
+   {N ALL_RESE
+   }
+  }
+
+  {SUBCOMP
+  }
+ }
+}

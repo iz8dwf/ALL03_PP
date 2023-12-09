@@ -1,0 +1,142 @@
+%SIGNAL
+PIN  39 =  all_d0 
+PIN  37 =  all_d1 
+PIN  36 =  all_d2 
+PIN  34 =  all_d3 
+PIN  33 =  all_d4 
+PIN  31 =  all_d5 
+PIN  27 =  all_d6 
+PIN  29 =  all_d7 
+PIN  26 =  all_rd2_n 
+PIN  40 =  all_reset 
+PIN  25 =  all_wr0 
+PIN  28 =  all_wr2_n 
+PIN  18 =  pp_ack_n 
+PIN   2 =  pp_autof_n 
+PIN   4 =  pp_d0 
+PIN   6 =  pp_d1 
+PIN   9 =  pp_d2 
+PIN  11 =  pp_d3 
+PIN  14 =  pp_d4 
+PIN  16 =  pp_d5 
+PIN  19 =  pp_d6 
+PIN  17 =  pp_d7 
+PIN   5 =  pp_err_n 
+PIN   8 =  pp_init_n 
+PIN  21 =  pp_pe 
+PIN  20 =  pp_slct 
+PIN  12 =  pp_slct_in 
+PIN   1 =  pp_strobe_n 
+PIN 332 =  rd_n 
+%END
+
+%FIELD
+%END
+
+%EQUATION
+all_d0.l  =>
+    pp_d0.io 
+
+all_d0.le  =>
+    1 
+
+all_d0.oe  =>
+    rd_n
+
+all_d1.l  =>
+    pp_d1.io 
+
+all_d1.le  =>
+    1 
+
+all_d1.oe  =>
+    rd_n
+
+all_d2.l  =>
+    pp_d2.io 
+
+all_d2.le  =>
+    1 
+
+all_d2.oe  =>
+    rd_n
+
+all_d3.l  =>
+    pp_d3.io 
+
+all_d3.le  =>
+    1 
+
+all_d3.oe  =>
+    rd_n
+
+all_d4.l  =>
+    pp_d4.io 
+
+all_d4.le  =>
+    1 
+
+all_d4.oe  =>
+    rd_n
+
+all_d5.l  =>
+    pp_d5.io 
+
+all_d5.le  =>
+    1 
+
+all_d5.oe  =>
+    rd_n
+
+all_d6.l  =>
+    pp_d6.io 
+
+all_d6.le  =>
+    1 
+
+all_d6.oe  =>
+    rd_n
+
+all_d7.l  =>
+    pp_d7.io 
+
+all_d7.le  =>
+    1 
+
+all_d7.oe  =>
+    rd_n
+
+all_rd2_n =>
+    rd_n
+
+all_reset =>
+    !pp_init_n
+
+all_wr0 =>
+    !pp_slct_in & !pp_strobe_n
+
+all_wr2_n =>
+    pp_strobe_n
+  # !pp_slct_in
+
+pp_ack_n =>
+    all_d7.io  & pp_slct_in
+  # all_d3.io  & !pp_slct_in
+
+pp_err_n =>
+    all_d4.io  & pp_slct_in
+  # all_d0.io  & !pp_slct_in
+
+pp_pe =>
+    all_d6.io  & pp_slct_in
+  # all_d2.io  & !pp_slct_in
+
+pp_slct =>
+    all_d5.io  & pp_slct_in
+  # all_d1.io  & !pp_slct_in
+
+rd_n =>
+    pp_autof_n
+  # !pp_strobe_n
+
+%END
