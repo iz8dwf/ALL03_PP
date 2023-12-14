@@ -1,5 +1,8 @@
-patch -p1 <01...
-patch -p1 <02...
+cd into dosbox source directory
+
+patch -p1 < 01-parport-passthrough.patch
+patch -p1 < 02-parport-sac.patch
 autoreconf -f -i
 ./configure
 make
+make install
